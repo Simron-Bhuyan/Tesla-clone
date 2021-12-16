@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
-import fadeInDown from "react-animations/lib/fade-in-down";
+import Fade from 'react-reveal/Fade';
+
 
 function Section(props) {
     console.log(props);
@@ -13,9 +14,9 @@ function Section(props) {
                 </h1>
                 <p> {props.description}</p>
             </ItemText>
+            </Fade>
             <Buttons>
-
-
+                <Fade bottom>
                 <ButtonGroup>
                     <LeftButton>
                     {props.leftBtnText}
@@ -25,11 +26,10 @@ function Section(props) {
                         {props.rightBtnText}
                     </RightButton>
                     }
-                    
                 </ButtonGroup>
+                </Fade>
                 <DownArrow src="/images/down-arrow.svg" />
             </Buttons>
-            </Fade>
            
         </Wrap>
     )
@@ -50,6 +50,7 @@ align-items: center;
 `
 
 const ItemText = styled.div`
+z-index: -1;
 padding-top: 15vh;
 text-align: center;
 `

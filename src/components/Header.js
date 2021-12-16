@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import MenuIcon from '@mui/icons-material/Menu';
+import CancelIcon from '@mui/icons-material/Cancel';
 
 function Header() {
     return (
@@ -19,6 +20,21 @@ function Header() {
                 <a href="#">Tesla Account</a>
                 <CustomMenu></CustomMenu>
             </RightMenu>
+<BurgerNav>
+    <CloseWrap>
+    <CustomClose/>// wrapping for aligning it
+    </CloseWrap>
+   
+    <li><a href="#"></a> Existing Inventory </li>
+    <li><a href="#"></a> Used Inventory </li>
+    <li><a href="#"></a> Trade-in </li>
+    <li><a href="#"></a> Cybertruck </li>
+    <li><a href="#"></a> Roadster </li>
+    <li><a href="#"></a> Existing Inventory </li>
+    <li><a href="#"></a> Existing Inventory </li>
+    
+</BurgerNav>
+
         </Container>
     )
 }
@@ -34,6 +50,7 @@ display: flex;
 align-items: center;
 justify-content: space-between;
 padding: 0 20px;
+z-index: 1;
 `
 
 const Menu = styled.div`
@@ -69,4 +86,30 @@ a{
 
 const CustomMenu = styled(MenuIcon)`
 cursor: pointer;  
+`
+
+const BurgerNav = styled.div`
+position: fixed;
+top: 0;
+bottom: 0;
+right: 0;
+background: white;
+width: 300px;
+z-index: 16;
+list-style: none;
+padding: 20px;
+display: flex;
+flex-direction: column;
+text-align: start;
+li {
+    padding: 15px 0;
+    border-bottom: 1px solid rgba(0,0,0,.2);
+    a{
+        font-weight: 600;
+    }
+}
+`
+
+const CustomClose = styled(CancelIcon)`
+
 `
