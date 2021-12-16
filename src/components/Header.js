@@ -1,9 +1,10 @@
-import React from "react";
+import React,{ useState } from "react";
 import styled from "styled-components";
 import MenuIcon from '@mui/icons-material/Menu';
 import CancelIcon from '@mui/icons-material/Cancel';
 
 function Header() {
+    const [burgerStats, setBurgerStats] = useState(false);
     return (
         <Container>
             <a>
@@ -20,9 +21,9 @@ function Header() {
                 <a href="#">Tesla Account</a>
                 <CustomMenu></CustomMenu>
             </RightMenu>
-<BurgerNav>
+<BurgerNav show= (burgerStats)>
     <CloseWrap>
-    <CustomClose/>// wrapping for aligning it
+    <CustomClose/>
     </CloseWrap>
    
     <li><a href="#"></a> Existing Inventory </li>
@@ -111,5 +112,10 @@ li {
 `
 
 const CustomClose = styled(CancelIcon)`
+cursor: pointer;
+`
 
+const CloseWrap = styled.div`
+display: flex;
+justify-content: flex-end;
 `
