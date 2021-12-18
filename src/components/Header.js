@@ -1,7 +1,12 @@
-import React,{ useState } from "react";
+/* eslint-disable jsx-a11y/anchor-is-valid */
+import React, { useState } from "react";
 import styled from "styled-components";
 import MenuIcon from '@mui/icons-material/Menu';
 import CancelIcon from '@mui/icons-material/Cancel';
+// eslint-disable-next-line no-unused-vars
+import {selectCars} from '../features/car/carSlice'
+// eslint-disable-next-line no-unused-vars
+import {useSelector} from 'react-redux'
 
 function Header() {
     const [burgerStats, setBurgerStats] = useState(false);
@@ -14,28 +19,25 @@ function Header() {
                 <div><a href="#">Model S</a></div>
                 <div><a href="#">Model 3</a></div>
                 <div><a href="#">Model X</a></div>
-                <div><a href="#">Model Y</a></div> 
+                <div><a href="#">Model Y</a></div>
             </Menu>
             <RightMenu>
                 <a href="#">Shop</a>
                 <a href="#">Tesla Account</a>
-                <CustomMenu></CustomMenu>
+                <CustomMenu onClick={() => setBurgerStats(true)} />
             </RightMenu>
-<BurgerNav show= (burgerStats)>
-    <CloseWrap>
-    <CustomClose/>
-    </CloseWrap>
-   
-    <li><a href="#"></a> Existing Inventory </li>
-    <li><a href="#"></a> Used Inventory </li>
-    <li><a href="#"></a> Trade-in </li>
-    <li><a href="#"></a> Cybertruck </li>
-    <li><a href="#"></a> Roadster </li>
-    <li><a href="#"></a> Existing Inventory </li>
-    <li><a href="#"></a> Existing Inventory </li>
-    
-</BurgerNav>
-
+            <BurgerNav show={burgerStats}>
+                <CloseWrap>
+                    <CustomClose onClick={() => setBurgerStats(false)} />
+                </CloseWrap>
+                <li><a href="#"> Existing Inventory </a></li>
+                <li><a href="#"> Used Inventory </a></li>
+                <li><a href="#"> Trade-in </a></li>
+                <li><a href="#"> Cybertruck </a></li>
+                <li><a href="#"> Roadster </a></li>
+                <li><a href="#"> Existing Inventory </a></li>
+                <li><a href="#"> Existing Inventory </a></li>
+            </BurgerNav>
         </Container>
     )
 }
@@ -102,6 +104,8 @@ padding: 20px;
 display: flex;
 flex-direction: column;
 text-align: start;
+transform: ${props => props.show ? 'translateX(0)' : 'translateX(100%)'};
+transition: transform 0.2s;
 li {
     padding: 15px 0;
     border-bottom: 1px solid rgba(0,0,0,.2);
