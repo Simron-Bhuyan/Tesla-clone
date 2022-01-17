@@ -1,10 +1,11 @@
 import React from "react";
 import styled from "styled-components";
 import Fade from 'react-reveal/Fade';
-
+// import {useSelector} from 'react-redux'
 
 function Section(props) {
     console.log(props);
+    // const [sectionStats, setSectionStats] = useState(false);
     return (
         <Wrap bgImage={props.backgroundImg}>
             <Fade bottom>

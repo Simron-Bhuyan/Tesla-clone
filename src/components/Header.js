@@ -3,23 +3,24 @@ import React, { useState } from "react";
 import styled from "styled-components";
 import MenuIcon from '@mui/icons-material/Menu';
 import CancelIcon from '@mui/icons-material/Cancel';
-// eslint-disable-next-line no-unused-vars
 import {selectCars} from '../features/car/carSlice'
-// eslint-disable-next-line no-unused-vars
 import {useSelector} from 'react-redux'
 
 function Header() {
     const [burgerStats, setBurgerStats] = useState(false);
+    const cars = useSelector(selectCars)
+    console.log(cars);
+
     return (
         <Container>
             <a>
                 <img src="/images/logo.svg" alt="" />
             </a>
             <Menu>
-                <div><a href="#">Model S</a></div>
-                <div><a href="#">Model 3</a></div>
-                <div><a href="#">Model X</a></div>
-                <div><a href="#">Model Y</a></div>
+                {cars && cars.map((car,index)=>
+                    <div><a href="#">{car}</a></div>
+                )}
+               
             </Menu>
             <RightMenu>
                 <a href="#">Shop</a>
