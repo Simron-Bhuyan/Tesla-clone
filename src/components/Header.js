@@ -1,44 +1,28 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
-import React, { useState } from "react";
+import React from "react";
 import styled from "styled-components";
 import MenuIcon from '@mui/icons-material/Menu';
 import CancelIcon from '@mui/icons-material/Cancel';
-import {selectCars} from '../features/car/carSlice'
-import {useSelector} from 'react-redux'
 
 function Header() {
-    const [burgerStats, setBurgerStats] = useState(false);
-    const cars = useSelector(selectCars)
-    console.log(cars);
-
+    
     return (
         <Container>
             <a>
                 <img src="/images/logo.svg" alt="" />
             </a>
             <Menu>
-                {cars && cars.map((car,index)=>
-                    <div><a href="#">{car}</a></div>
-                )}
-               
+                <div><a href="#">Model S</a></div>
+                <div><a href="#">Model 3</a></div>
+                <div><a href="#">Model X</a></div>
+                <div><a href="#">Solar Roof</a></div>
+                <div><a href="#">Solar Panels</a></div>
             </Menu>
             <RightMenu>
                 <a href="#">Shop</a>
                 <a href="#">Tesla Account</a>
-                <CustomMenu onClick={() => setBurgerStats(true)} />
             </RightMenu>
-            <BurgerNav show={burgerStats}>
-                <CloseWrap>
-                    <CustomClose onClick={() => setBurgerStats(false)} />
-                </CloseWrap>
-                <li><a href="#"> Existing Inventory </a></li>
-                <li><a href="#"> Used Inventory </a></li>
-                <li><a href="#"> Trade-in </a></li>
-                <li><a href="#"> Cybertruck </a></li>
-                <li><a href="#"> Roadster </a></li>
-                <li><a href="#"> Existing Inventory </a></li>
-                <li><a href="#"> Existing Inventory </a></li>
-            </BurgerNav>
+            
         </Container>
     )
 }
